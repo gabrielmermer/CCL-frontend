@@ -1,18 +1,44 @@
 <script>
 
-export let data;
-
-
-
-console.log(data);
-console.log(data.feed.title);
-
-let feed_items = data.feed.items;
-console.log(feed_items);
-
+import img from '$lib/images/CCL.png';
 
 </script>
 
-{#each feed_items as post}
-	<a href="{post.link}" target="_blank">{post.title}</a> <br>
-{/each}
+
+<body>
+
+<div class="flex justify-between">
+	<div>
+		<h1 class="font-supply text-white 2xl:text-5xl xl:text-4xl font-normal mt-8 ml-10">STR0NA</h1>
+		<div class="2xl:w-[57px] xl:w-[46px] h-1 ml-10 bg-white"></div>
+	</div>
+
+	<div>
+	<a href="#" class="text-white font-supply 2xl:mt-8 2xl:py-2 2xl:text-2xl 2xl:mr-8 xl:mt-5   xl:py-2 xl:text-lg xl:mr-5">sign in</a>
+	<button class="text-black bg-white font-supply 2xl:mt-8 2xl:text-2xl 2xl:px-3 2xl:py-2 2xl:mr-10   xl:mt-5 xl:text-lg xl:px-3 xl:py-2 xl:mr-10">Sign up</button>
+	</div>
+</div>
+
+<h1 class="text-white font-supply 2xl:text-6xl text-center 2xl:pt-[320px]   xl:text-4xl xl:pt-[240px]">Read the news like you <br> always wanted</h1>
+<p class="text-white text-center font-lato 2xl:text-2xl 2xl:pt-8 xl:text-base xl: pt-5">Display, mange  and consume RSS straight from your browser. Works <br>
+both on desktop and mobile, supporting synchronisation between devices.</p>
+
+<div class="flex justify-center">
+	<button class="text-white font-supply bg-party 2xl:px-[58px] 2xl:py-5 2xl:mt-10 2xl:text-xl xl:px-[31px] xl:py-4 xl:mt-10 xl:text-lg">get started</button>
+</div>
+
+</body>
+
+
+
+
+<style>
+
+body {
+	background-image: url('$lib/images/CCL.png');
+	background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+
