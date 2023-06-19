@@ -3,6 +3,8 @@
 
 import img from '$lib/images/CCL.png';
 
+import cross from '$lib/images/cross.svg';
+
 </script>
 
 
@@ -24,7 +26,12 @@ import img from '$lib/images/CCL.png';
 </div>
 
 <div class="bg-beige25 w-[659px] mx-auto py-8 px-10 mt-[255px]">
-	<h1 class="text-3xl font-supply text-beige200">Sign in</h1>
+	<div class="flex justify-between">
+		<h1 class="text-3xl font-supply text-beige200">Sign in</h1>
+		<a href="/">
+			<img draggable="false" src="{cross}" alt="">
+		</a>
+	</div>
 	<form action="http://localhost:3000/login" method="post" class="mt-12">
 
 	<label for="username" class="text-2xl font-supply text-beige75">username</label>
