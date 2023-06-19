@@ -28,7 +28,11 @@
 
 {#each data.slugfeedjson.items as post, i}
 	<div class="flex mb-5 ml-[539px]">
+		{#if i < 9}
+			<p class="mr-5 font-supply text-right text-beige50 text-2xl">0{i + 1}</p>
+		{:else}
 		<p class="mr-5 font-supply text-right text-beige50 text-2xl">{i + 1}</p>
+		{/if}
 		<a href="{post.link}" target="_blank" class="text-2xl font-supply text-beige75 hover:text-blue-400 hover:underline max-w-6xl">{post.title}…</a> <br>
 	</div>
 {/each}

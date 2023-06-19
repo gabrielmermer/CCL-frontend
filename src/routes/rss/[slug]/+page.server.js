@@ -26,3 +26,9 @@ export async function load({ fetch, params }) {
   return { feed, feed_name, feeds, title, slugfeedjson };
 }
 
+export async function logout() {
+	const logoutFetch = fetch('localhost:3000/logout');
+	return {}
+
+
+}

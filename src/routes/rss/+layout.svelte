@@ -49,7 +49,9 @@ console.log(data.feeds);
 	{/each}
 
 
-	<img draggable="false" src="{logout}" alt="" class="fixed bottom-8 left-8">
+	<a href="/" on:click={logout}>
+		<img draggable="false" src="{logout}" alt="" class="fixed bottom-8 left-8">
+	</a>
 
 </div>
 
