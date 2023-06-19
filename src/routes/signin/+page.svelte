@@ -12,7 +12,6 @@ import cross from '$lib/images/cross.svg';
 
 <div class="flex justify-between">
 	<div>
-
 		<a href="/">
 		<h1 class="font-supply text-white 2xl:text-5xl xl:text-4xl font-normal mt-8 ml-10">STR0NA</h1>
 		</a>
@@ -20,11 +19,12 @@ import cross from '$lib/images/cross.svg';
 	</div>
 
 	<div>
-	<a href="#" class="text-white font-supply 2xl:mt-8 2xl:py-2 2xl:text-2xl 2xl:mr-8 xl:mt-5   xl:py-2 xl:text-lg xl:mr-5">sign in</a>
-	<button class="text-black bg-white font-supply 2xl:mt-8 2xl:text-2xl 2xl:px-3 2xl:py-2 2xl:mr-10   xl:mt-5 xl:text-lg xl:px-3 xl:py-2 xl:mr-10">Sign up</button>
+	<a href="/signin" class="text-white font-supply 2xl:mt-8 2xl:py-2 2xl:text-2xl 2xl:mr-8 xl:mt-5   xl:py-2 xl:text-lg xl:mr-5">sign in</a>
+	<form action="/signup" class="inline">
+	<button href="/signup" class="text-black bg-white font-supply 2xl:mt-8 2xl:text-2xl 2xl:px-3 2xl:py-2 2xl:mr-10   xl:mt-5 xl:text-lg xl:px-3 xl:py-2 xl:mr-10">Sign up</button>
+	</form>
 	</div>
 </div>
-
 <div class="bg-beige25 w-[659px] mx-auto py-8 px-10 mt-[255px]">
 	<div class="flex justify-between">
 		<h1 class="text-3xl font-supply text-beige200">Sign in</h1>

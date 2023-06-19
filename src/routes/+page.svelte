@@ -17,7 +17,9 @@ import img from '$lib/images/CCL.png';
 
 	<div>
 	<a href="/signin" class="text-white font-supply 2xl:mt-8 2xl:py-2 2xl:text-2xl 2xl:mr-8 xl:mt-5   xl:py-2 xl:text-lg xl:mr-5">sign in</a>
-	<button class="text-black bg-white font-supply 2xl:mt-8 2xl:text-2xl 2xl:px-3 2xl:py-2 2xl:mr-10   xl:mt-5 xl:text-lg xl:px-3 xl:py-2 xl:mr-10">Sign up</button>
+	<form action="/signup" class="inline">
+	<button href="/signup" class="text-black bg-white font-supply 2xl:mt-8 2xl:text-2xl 2xl:px-3 2xl:py-2 2xl:mr-10   xl:mt-5 xl:text-lg xl:px-3 xl:py-2 xl:mr-10">Sign up</button>
+	</form>
 	</div>
 </div>
 
@@ -26,7 +28,9 @@ import img from '$lib/images/CCL.png';
 both on desktop and mobile, supporting synchronisation between devices.</p>
 
 <div class="flex justify-center">
+	<form action="/signup">
 	<button class="text-white font-supply bg-party 2xl:px-[58px] 2xl:py-5 2xl:mt-10 2xl:text-xl xl:px-[31px] xl:py-4 xl:mt-10 xl:text-lg">get started</button>
+	</form>
 </div>
 
 </body>
