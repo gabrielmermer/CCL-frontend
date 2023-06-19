@@ -5,6 +5,8 @@ import img from '$lib/images/CCL.png';
 
 import cross from '$lib/images/cross.svg';
 
+let usernameVar = ""
+
 </script>
 
 
@@ -34,9 +36,9 @@ import cross from '$lib/images/cross.svg';
 	</div>
 	<form action="http://localhost:3000/login" method="post" class="mt-12">
 
-	<label for="username" class="text-2xl font-supply text-beige75">username</label>
+	<label for="usernameVar" class="text-2xl font-supply text-beige75">username</label>
 	<br>
-	<input type="text" name="username" required class="w-full font-supply text-2xl placeholder:font-supply placeholder:text-2xl pl-5 py-5 mt-2 bg-transparent border border-beige80 focus:font-supply"placeholder="John331">
+	<input bind:value={usernameVar} type="text" name="username" required class="w-full font-supply text-2xl placeholder:font-supply placeholder:text-2xl pl-5 py-5 mt-2 bg-transparent border border-beige80 focus:font-supply"placeholder="John331">
 
 	<div class="mt-8">
 	<label for="password" class="text-2xl font-supply text-beige75 mt-8">password</label>
@@ -46,6 +48,7 @@ import cross from '$lib/images/cross.svg';
 	<br>
 	<button class="text-white font-supply bg-party 2xl:px-[58px] 2xl:py-5 2xl:mt-10 2xl:text-xl xl:px-[31px] xl:py-4 xl:mt-10 xl:text-lg">Sign in</button>
 	</form>
+	<p>{usernameVar}</p>
 </div>
 
 </body>
