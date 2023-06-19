@@ -22,10 +22,43 @@ console.log(data.feed.title);
 let feed_items = data.feed.items;
 console.log(feed_items);
 
-let sources = ['Hacker News', 'r/datahoarder', 'Elon Musk', 'CBN']
 
 
-console.log(data.feeds);
+//console.log(data.feeds);
+
+async function logoutUser() {
+	try {
+		const response = await fetch('http://localhost:3000/logout');
+		document.cookie = "accessToken" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+										   // Handle the response as needed
+		console.log(response);
+		alert(response);
+	} catch (error) {
+		// Handle any errors
+		alert("ERROR");
+		console.log(error);
+	}
+}
+
+function setTokenExpiration() {
+  const token = getCookie('accessToken');
+  if (token) {
+    const currentTime = new Date();
+    currentTime.setTime(currentTime.getTime());
+    document.cookie = `accessToken=${token}; expires=${currentTime.toUTCString()}; path=/`;
+  }
+}
+
+function getCookie(name) {
+  const cookieArr = document.cookie.split(';');
+  for (let i = 0; i < cookieArr.length; i++) {
+    const cookiePair = cookieArr[i].split('=');
+    if (name === cookiePair[0].trim()) {
+      return decodeURIComponent(cookiePair[1]);
+    }
+  }
+  return null;
+}
 
 </script>
 
@@ -49,7 +82,7 @@ console.log(data.feeds);
 	{/each}
 
 
-	<a href="/" on:click={logout}>
+	<a href="/" on:click={setTokenExpiration}>
 		<img draggable="false" src="{logout}" alt="" class="fixed bottom-8 left-8">
 	</a>
 
@@ -65,12 +98,6 @@ console.log(data.feeds);
 <img draggable="false" src="{blobPink3}" alt="" class="mt-10 ml-10 fixed bottom-0 right-0">
 
 <p class="fixed right-[-630px] bottom-[415px] -rotate-90 text-[150px] font-supply bg-clip-text text-transparent bg-gradient-to-b from-white/90 to-white/20">00110100011001</p>
-
-
-
-
-
-
 
 
 

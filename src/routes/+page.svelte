@@ -9,12 +9,14 @@ import img from '$lib/images/CCL.png';
 
 <div class="flex justify-between">
 	<div>
+		<a href="/">
 		<h1 class="font-supply text-white 2xl:text-5xl xl:text-4xl font-normal mt-8 ml-10">STR0NA</h1>
+		</a>
 		<div class="2xl:w-[57px] xl:w-[46px] h-1 ml-10 bg-white"></div>
 	</div>
 
 	<div>
-	<a href="#" class="text-white font-supply 2xl:mt-8 2xl:py-2 2xl:text-2xl 2xl:mr-8 xl:mt-5   xl:py-2 xl:text-lg xl:mr-5">sign in</a>
+	<a href="/signin" class="text-white font-supply 2xl:mt-8 2xl:py-2 2xl:text-2xl 2xl:mr-8 xl:mt-5   xl:py-2 xl:text-lg xl:mr-5">sign in</a>
 	<button class="text-black bg-white font-supply 2xl:mt-8 2xl:text-2xl 2xl:px-3 2xl:py-2 2xl:mr-10   xl:mt-5 xl:text-lg xl:px-3 xl:py-2 xl:mr-10">Sign up</button>
 	</div>
 </div>
