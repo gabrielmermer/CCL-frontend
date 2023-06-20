@@ -5,7 +5,9 @@ import img from '$lib/images/CCL.png';
 </script>
 
 
+
 <body>
+	
 
 <div class="flex justify-between">
 	<div>
@@ -32,7 +34,6 @@ both on desktop and mobile, supporting synchronisation between devices.</p>
 	<button class="text-white font-supply bg-party 2xl:px-[58px] 2xl:py-5 2xl:mt-10 2xl:text-xl xl:px-[31px] xl:py-4 xl:mt-10 xl:text-lg">get started</button>
 	</form>
 </div>
-
 </body>
 
 
@@ -45,6 +46,8 @@ body {
 	background-attachment:fixed;
     background-repeat: no-repeat;
     background-size: cover;
+	/* background-color: black; */
+	height: 100vh;
 }
 </style>
 

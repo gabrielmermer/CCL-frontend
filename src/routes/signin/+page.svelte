@@ -62,6 +62,8 @@ body {
 	background-attachment:fixed;
     background-repeat: no-repeat;
     background-size: cover;
+	/* background-color: black; */
+	height: 100vh;
 }
 </style>
 

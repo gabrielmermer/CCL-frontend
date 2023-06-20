@@ -16,16 +16,16 @@ import logout from '$lib/images/logout.svg';
 import { each } from 'svelte/internal';
 
 
-console.log(data);
-console.log(data.feed.title);
+//console.log(data);
+//console.log(data.feed.title);
 
 let feed_items = data.feed.items;
-console.log(feed_items);
+// console.log(feed_items);
 
 let sources = ['Hacker News', 'r/datahoarder', 'Elon Musk', 'CBN']
 
 
-console.log(data.feeds);
+//console.log(data.feeds);
 
 </script>
 

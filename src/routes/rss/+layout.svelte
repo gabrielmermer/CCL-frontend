@@ -16,12 +16,13 @@ import logout from '$lib/images/logout.svg';
 import { each } from 'svelte/internal';
 
 
-console.log(data);
-console.log(data.feed.title);
+//console.log(data);
+//console.log(data.feed.title);
 
 let feed_items = data.feed.items;
-console.log(feed_items);
+//console.log(feed_items);
 
+let [{ username }] = data.username;
 
 
 //console.log(data.feeds);
@@ -82,6 +83,7 @@ function getCookie(name) {
 		<div class="mt-5"></div>
 		<a href="/rss/{feed.feed_name}" class="ml-10 font-supply text-2xl text-beige80">{feed.feed_name}</a> <br>
 	{/each}
+
 
 
 	<a href="/" on:click={setTokenExpiration}>
