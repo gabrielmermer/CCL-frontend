@@ -25,6 +25,15 @@ let feed_items = data.feed.items;
 let [{ username }] = data.username;
 
 
+let isRemoving = false;
+
+function toggle_isRemoving() {
+	isRemoving = !isRemoving
+
+}
+
+
+
 //console.log(data.feeds);
 
 async function logoutUser() {
@@ -61,6 +70,7 @@ function getCookie(name) {
   return null;
 }
 
+
 </script>
 
 
@@ -74,14 +84,28 @@ function getCookie(name) {
 		<a href="/rss/add">
 		<img draggable="false" src="{plus}" alt="" class="mt-10 ml-10">
 		</a>
+		<div on:click={toggle_isRemoving}>
 		<img draggable="false" src="{minus}" alt="" class="ml-9 mt-[39px]">
+		</div>
 	</div>
 
 
 	<div class="mt-8"></div>
+
 	{#each data.feeds as feed}
 		<div class="mt-5"></div>
-		<a href="/rss/{feed.feed_name}" class="ml-10 font-supply text-2xl text-beige80">{feed.feed_name}</a> <br>
+
+		<div class="flex ml-10 align-bottom">
+		{#if isRemoving == true}
+		<form method="post" action="http://localhost:3000/deletefeed">
+			<input type="hidden" name="username" value={username} />
+			<input type="hidden" name="feedName" value={feed.feed_name} />
+			<input type="hidden" name="feedUrl" value={feed.feed_url} />
+			<button class="font-supply text-2xl text-red-300">X</button>	
+		</form>
+		{/if}
+		<a href="/rss/{feed.feed_name}" class="ml-2 font-supply text-2xl text-beige80">{feed.feed_name}</a> <br>
+		</div>
 	{/each}
 
 
