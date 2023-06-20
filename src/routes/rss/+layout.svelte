@@ -15,9 +15,13 @@ import logout from '$lib/images/logout.svg';
 
 import { each } from 'svelte/internal';
 
+import { fade } from 'svelte/transition';
 
+import { page } from '$app/stores';
+
+	
 //console.log(data);
-//console.log(data.feed.title);
+console.log(data.feed.title);
 
 let feed_items = data.feed.items;
 //console.log(feed_items);
@@ -71,6 +75,18 @@ function getCookie(name) {
 }
 
 
+$: pageUrl = $page.url.pathname
+
+const regex = /\/rss\/|(%20)/g;
+$: pageUrlFormated = pageUrl.replace(regex, (match, p1) => {
+  if (p1) {
+    return ' ';
+  } else {
+    return '';
+  }
+});
+
+
 </script>
 
 
@@ -95,16 +111,24 @@ function getCookie(name) {
 	{#each data.feeds as feed}
 		<div class="mt-5"></div>
 
-		<div class="flex ml-10 align-bottom">
+		<div class="flex ml-8 align-bottom">
 		{#if isRemoving == true}
 		<form method="post" action="http://localhost:3000/deletefeed">
 			<input type="hidden" name="username" value={username} />
 			<input type="hidden" name="feedName" value={feed.feed_name} />
 			<input type="hidden" name="feedUrl" value={feed.feed_url} />
-			<button class="font-supply text-2xl text-red-300">X</button>	
+			<button transition:fade class="font-supply text-2xl text-red-300">X</button>	
 		</form>
 		{/if}
-		<a href="/rss/{feed.feed_name}" class="ml-2 font-supply text-2xl text-beige80">{feed.feed_name}</a> <br>
+		{#if pageUrlFormated == feed.feed_name}
+			{#if isRemoving == true }
+				<a href="/rss/{feed.feed_name}" class="ml-2 font-supply text-2xl text-black">&nbsp&nbsp{feed.feed_name}</a> <br>
+			{:else}
+				<a href="/rss/{feed.feed_name}" class="ml-2 font-supply text-2xl text-black">> {feed.feed_name}</a> <br>
+			{/if}
+		{:else}
+		<a fade href="/rss/{feed.feed_name}" class="ml-2 font-supply text-2xl text-beige80"> &nbsp&nbsp{feed.feed_name}</a> <br>
+		{/if}
 		</div>
 	{/each}
 

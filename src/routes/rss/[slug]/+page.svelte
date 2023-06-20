@@ -14,10 +14,10 @@
 	//console.log("feed items ", feed_items);
 
 	let title = data.slugfeedjson.title;
-	console.log("slugfeedjson: ", title);
+	//console.log("slugfeedjson: ", title);
 	let feed_data = data.slugfeedjson.title;
-	console.log("test client: ", feed_data);
-	console.log(data)
+	//console.log("test client: ", feed_data);
+	//console.log(data)
 
 
 
