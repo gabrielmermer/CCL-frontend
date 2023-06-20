@@ -70,7 +70,9 @@ function getCookie(name) {
 	<div class="2xl:w-[57px] xl:w-[46px] h-1 ml-10 bg-beige100 bg-opacity-[85]"></div>
 	
 	<div class="flex items-center">
+		<a href="/rss/add">
 		<img draggable="false" src="{plus}" alt="" class="mt-10 ml-10">
+		</a>
 		<img draggable="false" src="{minus}" alt="" class="ml-9 mt-[39px]">
 	</div>
 

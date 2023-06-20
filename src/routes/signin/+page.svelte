@@ -48,7 +48,6 @@ let usernameVar = ""
 	<br>
 	<button class="text-white font-supply bg-party 2xl:px-[58px] 2xl:py-5 2xl:mt-10 2xl:text-xl xl:px-[31px] xl:py-4 xl:mt-10 xl:text-lg">Sign in</button>
 	</form>
-	<p>{usernameVar}</p>
 </div>
 
 </body>
