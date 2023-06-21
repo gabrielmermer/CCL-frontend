@@ -2,19 +2,9 @@
 
 export let data;
 
-import blobBlue from '$lib/images/blob-blue.svg';
-import blobGreen from '$lib/images/blob-green.svg';
-import blobPink from '$lib/images/blob-pink.svg';
-import blobPink3 from '$lib/images/blob-pink-3.svg';
+import { browser} from '$app/environment';
 
-import plus from '$lib/images/plus.svg';
-import minus from '$lib/images/minus.svg';
-
-
-import logout from '$lib/images/logout.svg';
-
-import { each } from 'svelte/internal';
-
+import { goto } from '$app/navigation';
 
 //console.log(data);
 //console.log(data.feed.title);
@@ -22,22 +12,43 @@ import { each } from 'svelte/internal';
 let feed_items = data.feed.items;
 // console.log(feed_items);
 
-let sources = ['Hacker News', 'r/datahoarder', 'Elon Musk', 'CBN']
+let feeds = data.feeds;
 
 
-//console.log(data.feeds);
+console.log("feeds: ", feeds);
+
+function gotoFirstFeed() {
+
+	let addfeed = "/rss/add"
+	if(feeds.length > 0) {
+
+		let firstfeed = "/rss/" + feeds[0].feed_name;
+		console.log(feeds[0].feed_name)
+		console.log(firstfeed)
+		if (browser) {
+			goto(firstfeed);
+		}
+	}
+	else {
+		console.log("No feeds, redirecting to /rss/add")
+		if (browser) {
+			goto(addfeed);
+		}
+
+	}
+
+}
+
+gotoFirstFeed()
 
 </script>
 
 
 
 
-<body class="bg-beige">
 	
-	<h1 class="mt-7 ml-[539px]"><span class="bg-party50 font-supply text-[56px] text-beige100">{data.feed.title}</span></h1>
 
 
 
 
 
-</body>
