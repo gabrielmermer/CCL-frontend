@@ -10,6 +10,7 @@ module.exports = {
         party: '#ff47f3ff',
         party50: '#FFC8FF',
         beige: '#E9EDE9',
+        beige10: '#B9B9B9',
         beige25: '#DAE6E7',
         beige50: '#B5C3C4',
         beige75: '#3D5152',

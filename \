@@ -9,11 +9,8 @@ import blobPink3 from '$lib/images/blob-pink-3.svg';
 
 import plus from '$lib/images/plus.svg';
 import plusActive from '$lib/images/plus-active.svg';
-import plusDisabled from '$lib/images/plus-disabled.svg';
 import minus from '$lib/images/minus.svg';
-import minusActive from '$lib/images/minus-active.svg';
 import minusDisabled from '$lib/images/minus-disabled.svg';
-
 
 
 import logout from '$lib/images/logout.svg';
@@ -108,97 +105,49 @@ $: pageUrlFormated = pageUrl.replace(regex, (match, p1) => {
 			<img draggable="false" src="{plusActive}" alt="" class="mt-10 ml-10">
 			</a>
 		{:else}
-			{#if isRemoving == true }
-				<a href="/rss/add">
-				<img draggable="false" src="{plusDisabled}" alt="" class="mt-10 ml-10 plus">
-				</a>
-			{:else}
-				<a href="/rss/add">
-				<img draggable="false" src="{plus}" alt="" class="mt-10 ml-10 plus">
-				</a>
-			{/if}
+			<a href="/rss/add">
+			<img draggable="false" src="{plus}" alt="" class="mt-10 ml-10 plus">
+			</a>
 		{/if}
 
 
 		{#if pageUrlFormated == "add"}
-			<a href="/rss" class="py-2"  on:click={toggle_isRemoving}>
+			<a href="#" class="py-4"  on:click={toggle_isRemoving}>
 				<img draggable="false" src="{minusDisabled}" alt="" class="ml-9 mt-[39px]">
 			</a>
 		{:else}
-			
-			{#if isRemoving == true }
-				<a href="#" class="py-2"  on:click={toggle_isRemoving}>
-					<img draggable="false" src="{minusActive}" alt="" class="ml-9 mt-[39px]">
-				</a>
-			{:else}
-
-				<a href="#" class="py-2"  on:click={toggle_isRemoving}>
-					<img draggable="false" src="{minus}" alt="" class="ml-9 mt-[39px]">
-				</a>
-			{/if}
+			<a href="#" class="py-4"  on:click={toggle_isRemoving}>
+				<img draggable="false" src="{minus}" alt="" class="ml-9 mt-[39px]">
+			</a>
 		{/if}
 	</div>
 
 
 	<div class="mt-8"></div>
 
+	{#each data.feeds as feed}
+		<div class="mt-5"></div>
 
-	{#if pageUrlFormated == "add"}
-	
-		{#each data.feeds as feed}
-			<div class="mt-5"></div>
-
-			<div class="flex ml-8 align-bottom">
-			{#if isRemoving == true}
-			<form method="post" action="http://localhost:3000/deletefeed">
-				<input type="hidden" name="username" value={username} />
-				<input type="hidden" name="feedName" value={feed.feed_name} />
-				<input type="hidden" name="feedUrl" value={feed.feed_url} />
-				<button transition:fade class="font-supply text-2xl text-red-300">X</button>	
-			</form>
-			{/if}
-			{#if pageUrlFormated == feed.feed_name}
-				{#if isRemoving == true }
-					<a href="/rss/{feed.feed_name}" class="ml-2 font-supply text-2xl text-black">&nbsp&nbsp{feed.feed_name}</a> <br>
-				{:else}
-					<a href="/rss/{feed.feed_name}" class="ml-2 font-supply text-2xl text-black">> {feed.feed_name}</a> <br>
-				{/if}
+		<div class="flex ml-8 align-bottom">
+		{#if isRemoving == true}
+		<form method="post" action="http://localhost:3000/deletefeed">
+			<input type="hidden" name="username" value={username} />
+			<input type="hidden" name="feedName" value={feed.feed_name} />
+			<input type="hidden" name="feedUrl" value={feed.feed_url} />
+			<button transition:fade class="font-supply text-2xl text-red-300">X</button>	
+		</form>
+		{/if}
+		{#if pageUrlFormated == feed.feed_name}
+			{#if isRemoving == true }
+				<a href="/rss/{feed.feed_name}" class="ml-2 font-supply text-2xl text-black">&nbsp&nbsp{feed.feed_name}</a> <br>
 			{:else}
-			<a fade href="/rss/{feed.feed_name}" class="ml-2 font-supply text-2xl text-beige10"> &nbsp&nbsp{feed.feed_name}</a> <br>
+				<a href="/rss/{feed.feed_name}" class="ml-2 font-supply text-2xl text-black">> {feed.feed_name}</a> <br>
 			{/if}
-			</div>
-		{/each}
-
-
-	{:else}
-
-		{#each data.feeds as feed}
-			<div class="mt-5"></div>
-
-			<div class="flex ml-8 align-bottom">
-			{#if isRemoving == true}
-			<form method="post" action="http://localhost:3000/deletefeed">
-				<input type="hidden" name="username" value={username} />
-				<input type="hidden" name="feedName" value={feed.feed_name} />
-				<input type="hidden" name="feedUrl" value={feed.feed_url} />
-				<button transition:fade class="font-supply text-2xl text-red-300">X</button>	
-			</form>
-			{/if}
-			{#if pageUrlFormated == feed.feed_name}
-				{#if isRemoving == true }
-					<a href="/rss/{feed.feed_name}" class="ml-2 font-supply text-2xl text-black hover:text-green-300">&nbsp&nbsp{feed.feed_name}</a> <br>
-				{:else}
-					<a href="/rss/{feed.feed_name}" class="ml-2 font-supply text-2xl text-black hover:text-green-500">> {feed.feed_name}</a> <br>
-				{/if}
-			{:else}
-			<a fade href="/rss/{feed.feed_name}" class="ml-2 font-supply text-2xl text-beige80 hover:text-green-400"> &nbsp&nbsp{feed.feed_name}</a> <br>
-			{/if}
-			</div>
-		{/each}
-
-
-	{/if}
-
+		{:else}
+		<a fade href="/rss/{feed.feed_name}" class="ml-2 font-supply text-2xl text-beige80"> &nbsp&nbsp{feed.feed_name}</a> <br>
+		{/if}
+		</div>
+	{/each}
 
 
 
@@ -215,7 +164,7 @@ $: pageUrlFormated = pageUrl.replace(regex, (match, p1) => {
 </div>
 
 
-<img draggable="false" src="{blobPink3}" alt="" class="mt-10 ml-10 fixed bottom-0 right-0 -z-20">
+<img draggable="false" src="{blobPink3}" alt="" class="mt-10 ml-10 fixed bottom-0 right-0">
 
 <p class="select-none fixed right-[-630px] bottom-[415px] -rotate-90 text-[150px] font-supply bg-clip-text text-transparent bg-gradient-to-b from-white/90 to-white/20">00110100011001</p>
 
