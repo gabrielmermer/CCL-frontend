@@ -104,7 +104,7 @@ $: pageUrlFormated = pageUrl.replace(regex, (match, p1) => {
 	<div class="flex items-center">
 
 		{#if pageUrlFormated == "add"}
-			<a href="/rss/">
+			<a href="/rss/" >
 			<img draggable="false" src="{plusActive}" alt="" class="mt-10 ml-10">
 			</a>
 		{:else}
@@ -113,7 +113,7 @@ $: pageUrlFormated = pageUrl.replace(regex, (match, p1) => {
 				<img draggable="false" src="{plusDisabled}" alt="" class="mt-10 ml-10 plus">
 				</a>
 			{:else}
-				<a href="/rss/add">
+				<a href="/rss/add" class="cross">
 				<img draggable="false" src="{plus}" alt="" class="mt-10 ml-10 plus">
 				</a>
 			{/if}
@@ -132,7 +132,7 @@ $: pageUrlFormated = pageUrl.replace(regex, (match, p1) => {
 				</a>
 			{:else}
 
-				<a href="#" class="py-2"  on:click={toggle_isRemoving}>
+				<a href="#" class="py-2 cross"  on:click={toggle_isRemoving}>
 					<img draggable="false" src="{minus}" alt="" class="ml-9 mt-[39px]">
 				</a>
 			{/if}
@@ -222,3 +222,15 @@ $: pageUrlFormated = pageUrl.replace(regex, (match, p1) => {
 
 
 <slot />
+
+<style>
+
+	.cross {
+		transition: all 200ms ease;
+	}
+
+	.cross:hover {
+		filter: invert(94%) sepia(12%) saturate(7322%) hue-rotate(228deg) brightness(105%) contrast(102%);
+		opacity: .8;
+	}
+</style>

@@ -13,6 +13,8 @@
 	let [{ username }] = data.username;
 	console.log(username)
 
+	console.log("ADD feeds : ", data.feeds)
+
 
 </script>
 

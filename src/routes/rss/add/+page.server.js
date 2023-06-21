@@ -14,6 +14,8 @@ export async function load({ cookies }) {
 	// logged in username
 	console.log(usernameValue);
 
+	const res_feeds = await fetch('http://localhost:3000/feeds/' + usernameValue);
+	const feeds = await res_feeds.json();
 
 	// add feed to the logged in user 
 	
@@ -23,7 +25,7 @@ export async function load({ cookies }) {
 
 
 	return {
-		token, payload, userid, username
+		token, payload, userid, username, feeds
 	};
 }
 
