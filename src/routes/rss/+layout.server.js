@@ -28,9 +28,6 @@ export async function load({ fetch, cookies }) {
 	const res_feeds = await fetch('http://localhost:3000/feeds/' + usernameValue);
 	const feeds = await res_feeds.json();
 
-
-
-
 	return { feed, feeds, username, usernameValue};
 }
 

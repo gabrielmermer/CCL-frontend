@@ -130,6 +130,8 @@ async function smoothTransition() {
 
 //smoothTransition();
 
+// console.log("feed name: ", data.feeds);
+
 </script>
 
 

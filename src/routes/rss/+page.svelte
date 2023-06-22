@@ -26,13 +26,15 @@ function gotoFirstFeed() {
 		console.log(feeds[0].feed_name)
 		console.log(firstfeed)
 		if (browser) {
-			goto(firstfeed);
+			//goto(firstfeed);
+			window.location.href = firstfeed;
 		}
 	}
 	else {
 		console.log("No feeds, redirecting to /rss/add")
 		if (browser) {
-			goto(addfeed);
+			//goto(addfeed);
+			window.location.href = addfeed;
 		}
 
 	}

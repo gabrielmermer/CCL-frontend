@@ -18,7 +18,7 @@ import img from '$lib/images/CCL.png';
 	</div>
 
 	<div>
-	<a href="/signin" class="text-white font-supply 2xl:mt-8 2xl:py-2 2xl:text-2xl 2xl:mr-8 xl:mt-5   xl:py-2 xl:text-lg xl:mr-5">sign in</a>
+	<a href="/signin" class="text-white font-supply 2xl:mt-8 2xl:py-2 2xl:text-2xl 2xl:mr-8 xl:mt-5   xl:py-2 xl:text-lg xl:mr-5">Sign in</a>
 	<form action="/signup" class="inline">
 	<button href="/signup" class="text-black bg-white font-supply 2xl:mt-8 2xl:text-2xl 2xl:px-3 2xl:py-2 2xl:mr-10   xl:mt-5 xl:text-lg xl:px-3 xl:py-2 xl:mr-10">Sign up</button>
 	</form>
