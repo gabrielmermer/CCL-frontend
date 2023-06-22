@@ -91,6 +91,44 @@ $: pageUrlFormated = pageUrl.replace(regex, (match, p1) => {
   }
 });
 
+let matrixIndex = 0;
+let matrixString = '00110100011001';
+let direction = 1; // Direction of iteration: 1 for forward, -1 for backward
+
+function iterateOverString(string) {
+  matrixIndex += direction;
+
+  // Check if the iteration reached either end of the string
+  if (matrixIndex >= string.length || matrixIndex < 0) {
+    direction *= -1; // Reverse the direction for the bounce back
+    matrixIndex += direction * 2; // Adjust the index to move in the opposite direction
+  }
+
+  let updatedString = '';
+  for (let i = 0; i < string.length; i++) {
+    if (i === matrixIndex) {
+      // Assign 0 or 1 to the character at the current index
+      updatedString += isNaN(string[i]) ? '0' : '1';
+    } else {
+      // Keep the character unchanged
+      updatedString += string[i];
+    }
+  }
+
+  return updatedString;
+}
+
+//console.log(matrixString); // Output: '00110100011001'
+
+async function smoothTransition() {
+  while (true) {
+    matrixString = iterateOverString(matrixString);
+    console.log(matrixString);
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  }
+}
+
+//smoothTransition();
 
 </script>
 

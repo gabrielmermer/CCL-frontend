@@ -39,24 +39,12 @@
 
   onMount(() => {
     spanElement = document.querySelector("h1 span");
-    spanElement.addEventListener("mouseover", animateText);
-    spanElement.addEventListener("mouseout", stopAnimation);
+	setTimeout(animateText(), 2000)
+    //animateText(); // Call the animateText function on page load
   });
 
-  onDestroy(() => {
-    if (spanElement) {
-      spanElement.removeEventListener("mouseover", animateText);
-      spanElement.removeEventListener("mouseout", stopAnimation);
-    }
-  });
 </script>
 
-
-<a href="/rss">
-  <div class="flex mt-8">
-    <p class="font-supply ml-2 text-beige80 text-2xl">back</p>
-  </div>
-</a>
 
 <h1 class="mt-7 ml-[539px]">
   <span class="bg-party50 font-supply text-[56px] text-beige100">MATRIX</span>

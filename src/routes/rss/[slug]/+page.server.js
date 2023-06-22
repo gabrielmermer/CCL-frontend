@@ -35,14 +35,28 @@ export async function load({ fetch, params, cookies}) {
 	const feed_name = feeds.find((feed) => feed.feed_name === params.slug);
 
 
+
 	// Fetch the specific feed with caching options
 	const slugfeed = await fetch('http://localhost:3000/rss' + '/' + feed_name.feed_url, cachingOptions);
 	const slugfeedjson = await slugfeed.json();
+	console.log(slugfeedjson);
+
+
+
+	let isFeedOnline = true;
+	console.log(slugfeedjson.status)
+	if(slugfeedjson.status == "404") {
+		console.log("Feed url not found")
+		isFeedOnline = false;
+		
+
+	}
+	
 	// this updates in real time
 	//console.log("server title: ", slugfeedjson.title);
 
 
-	return { feed, feed_name, feeds, title, slugfeedjson };
+	return { feed, feed_name, feeds, title, slugfeedjson, isFeedOnline };
 }
 
 

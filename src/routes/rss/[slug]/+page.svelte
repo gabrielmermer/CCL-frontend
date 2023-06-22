@@ -29,18 +29,25 @@
 
 <div class="w-[1551px]">
 
-{#each data.slugfeedjson.items as post, i}
-	<div class="flex mb-5 ml-[539px]">
-		{#if i < 9}
-			<p class="mr-5 font-supply text-right text-beige50 text-2xl">0{i + 1}</p>
-		{:else}
-		<p class="mr-5 font-supply text-right text-beige50 text-2xl">{i + 1}</p>
-		{/if}
-		<div class="flex">
-			<a href="{post.link}" target="_blank" class="text-2xl font-supply text-beige75 hover:text-blue-400 underline underline-offset-4 decoration-green-300 hover:underline max-w-6xl">{post.title} </a> 
-			<p class="font-supply text-2xl ml-1 text-beige50">↗️</p><br>
+{#if data.isFeedOnline == true}
+	
+	{#each data.slugfeedjson.items as post, i}
+		<div class="flex mb-5 ml-[539px]">
+			{#if i < 9}
+				<p class="mr-5 font-supply text-right text-beige50 text-2xl">0{i + 1}</p>
+			{:else}
+			<p class="mr-5 font-supply text-right text-beige50 text-2xl">{i + 1}</p>
+			{/if}
+			<div class="flex">
+				<a href="{post.link}" target="_blank" class="text-2xl font-supply text-beige75 hover:text-blue-400 underline underline-offset-4 decoration-green-300 hover:underline max-w-6xl">{post.title} </a> 
+				<p class="font-supply text-2xl ml-1 text-beige50">↗️</p><br>
+			</div>
 		</div>
-	</div>
-{/each}
+	{/each}
+{:else}
+<p class="ml-[539px] font-supply text-2xl text-beige75">404 feed not found</p>
+
+{/if}
+
 
 </div>
